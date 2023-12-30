@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  db_postgres:
+    image: postgres:latest
+    container_name: db_postgres
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
+    env_file: docker.env
+    volumes:
+      - postgres-data:/var/lib/postgres/data
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: server
+    expose:
+      - "2020"
+    ports:
+      - "2020:2020"
+    env_file: docker.env
+    depends_on:
+      - db_postgres
+
+volumes:
+  postgres-data:
+
+

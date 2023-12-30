@@ -1,0 +1,1 @@
+DB_PASSWORD=123;DB_URL=jdbc:postgresql://localhost:5432/packman;DB_USERNAME=postgres;PORT=2020
